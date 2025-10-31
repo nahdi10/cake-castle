@@ -1,0 +1,125 @@
+/* GENERAL RESET AND BASE STYLES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fff8f8;
+    color: #333;
+}
+
+/* --- REUSABLE CONTAINERS --- */
+section, footer {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2, h3 { color: #5d2543; margin-bottom: 20px; }
+
+/* --- 1. HEADER STYLING --- */
+.main-header {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Pushes brand left, social right */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand-link { display: flex; align-items: center; text-decoration: none; color: #5d2543; }
+.logo-image { height: 45px; margin-right: 10px; transition: height 0.3s; }
+.brand-name { font-size: 28px; font-weight: 700; white-space: nowrap; transition: font-size 0.3s; }
+
+.social-media-link { display: flex; align-items: center; text-decoration: none; color: #E1306C; }
+.insta-icon { font-size: 20px; margin-right: 5px; }
+.insta-handle { font-size: 16px; white-space: nowrap; }
+
+/* --- 2. HERO SECTION --- */
+.hero-section {
+    background-color: #f7e6e6; /* Placeholder for your image background */
+    padding: 100px 20px;
+}
+.hero-content h2 { font-size: 48px; color: #5d2543; }
+.cta-button {
+    display: inline-block; padding: 12px 25px; background-color: #ff69b4; color: white;
+    text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold;
+}
+
+/* --- 3. PRODUCT GRID (THE KEY TO RESPONSIVENESS) --- */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows products to wrap to the next line */
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ffd1e4;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33% - 20px); /* DESKTOP: 3 cards per row */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* --- 4. FOOTER --- */
+.main-footer {
+    background-color: #5d2543;
+    color: white;
+    font-size: 14px;
+    padding: 20px 0;
+}
+
+
+/* ======================================================= */
+/* --- FULL RESPONSIVE FIXES (Media Queries) --- */
+/* ======================================================= */
+
+/* For Tablets and smaller (up to 768px wide) */
+@media (max-width: 768px) {
+    
+    /* Product Grid: Now 2 cards per row */
+    .product-card {
+        width: calc(50% - 10px); 
+    }
+}
+
+/* For Phones and smaller (up to 600px wide) */
+@media (max-width: 600px) {
+    
+    /* Header Fixes (Stops the logo/handle from mixing) */
+    .logo-image { height: 35px; }
+    .brand-name { font-size: 20px; }
+    .insta-handle { display: none; } /* Hides the username on small screens */
+    .insta-icon { margin-right: 0; }
+    
+    /* Product Grid: Now 1 card per row (stacks vertically) */
+    .product-card {
+        width: 90%; 
+        margin: 10px auto;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+}
