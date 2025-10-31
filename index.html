@@ -2,50 +2,269 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Castle | Freshly Baked Delights</title>
     
-    <title>Cake Castle - Delicious Baked Goods</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
 
-    <header class="main-header">
-        <div class="nav-container">
-            <a href="#" class="brand-link">
-                <img src="images/cake-castle-logo.png" alt="Cake Castle Logo" class="logo-image">
-                <span class="brand-name">Cake Castle</span>
-            </a>
-            <a href="https://www.instagram.com/cake.castle01" target="_blank" class="social-media-link">
-                <i class="fab fa-instagram insta-icon"></i>
-                <span class="insta-handle">@cake.castle01</span>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; 
+        }
+        /* Custom gradient for a sweet, baked feel */
+        .cake-gradient {
+            background-image: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); 
+        }
+        /* Style for the main logo image */
+        .logo-image {
+            max-height: 80px; 
+            width: auto;
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        /* Style for the Instagram logo image */
+        .instagram-icon-img {
+            width: 32px; /* Set a specific size for the icon */
+            height: 32px;
+            border-radius: 8px;
+        }
+        /* Styles for the cake-list items remain the same */
+        .cake-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.75rem; 
+        }
+        .cake-item-name {
+            font-weight: 600; 
+            color: #d82d7a; 
+            font-size: 1.25rem; 
+            margin-right: 0.5rem; 
+            flex-grow: 1; 
+        }
+        .cake-item-price {
+            font-weight: 500; 
+            color: #ec4899; 
+            font-size: 1.125rem; 
+            white-space: nowrap; 
+            flex-shrink: 0; 
+        }
+        .cake-item-description {
+            color: #4b5563; 
+            font-size: 0.95rem; 
+            margin-top: 0.25rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        /* --- CRITICAL MOBILE FIX (Custom CSS) --- */
+        /* On small screens (max-width: 640px, or Tailwind 'sm:'), hide the username text. */
+        @media (max-width: 640px) {
+            .mobile-hide-handle {
+                display: none;
+            }
+        }
+        /* Shrink logo on small screens to save space */
+        @media (max-width: 500px) {
+            .logo-image {
+                max-height: 50px; 
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col">
+
+    <header class="bg-white shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+            
+            <img src="logo.jpg" alt="Cake Castle Logo" class="logo-image">
+            
+            <a href="https://www.instagram.com/cake.castle01" target="_blank" rel="noopener noreferrer"
+               class="flex items-center space-x-2 text-pink-700 hover:text-pink-900 transition duration-300 group border-2 border-pink-700 rounded-full p-2 hover:bg-pink-100 shadow-md">
+                
+                <img src="instagram.jpg" 
+                     alt="Instagram Icon" 
+                     class="instagram-icon-img group-hover:scale-105 transition duration-300"
+                     onerror="this.src='https://placehold.co/32x32/d82d7a/ffffff?text=IG'">
+                
+                <span class="text-xl font-semibold mobile-hide-handle">@cake.castle01</span>
             </a>
         </div>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h2>Baked Fresh, Just For You.</h2>
-                <p>Explore our handcrafted cakes, pastries, and custom creations.</p>
-                <a href="#menu" class="cta-button">View Our Menu</a>
+    <main class="flex-grow">
+        <section class="cake-gradient text-center py-16 px-4 shadow-xl">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-5xl md:text-6xl font-black text-pink-900 mb-4 drop-shadow-md">
+                    Where Every Slice is a Story, Baked with Love.
+                </h2>
+                <p class="text-xl md:text-2xl text-pink-800 mb-8">
+                    Indulge in our exquisite collection of handcrafted cakes, rich brownies, and delightful treats. Each creation from Cake Castle is a testament to fresh ingredients, meticulous artistry, and a passion for perfect taste. Experience the magic in every bite!
+                </p>
+                <button onclick="document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });"
+                    class="bg-pink-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-pink-800 transition duration-300 transform hover:scale-105">
+                    Explore Our Irresistible Menu
+                </button>
             </div>
         </section>
 
-        <section class="products-section" id="menu">
-            <h3>Our Signature Creations</h3>
-            <div class="product-grid">
-                <div class="product-card"><img src="images/product-redvelvet.jpg" alt="Red Velvet"><h4>Red Velvet Dream</h4><p>A classic, rich, and velvety delight.</p></div>
-                <div class="product-card"><img src="images/product-chocolate.jpg" alt="Chocolate Fudge"><h4>Dark Chocolate Fudge</h4><p>Intense cocoa bliss for the chocoholic.</p></div>
-                <div class="product-card"><img src="images/product-cupcakes.jpg" alt="Cupcakes"><h4>Assorted Cupcakes</h4><p>Perfect little bites of heaven.</p></div>
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-pink-50">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-4xl font-bold text-pink-800 mb-6">Our Philosophy</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    At *Cake Castle, we believe that baking is an art form, and every cake is a canvas. We source only the finest, freshest ingredients to ensure **unparalleled taste and quality* in every single product. From the first scent of warm vanilla to the final, lingering taste of chocolate, we promise an experience that transports you to a realm of pure dessert bliss.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Our dedicated bakers pour their heart into every creation, blending traditional recipes with innovative twists. Whether it’s a classic favorite or a unique tub cake, you’re not just getting a dessert – you're getting a moment of joy, a celebration of flavor, and a piece of our passion.
+                </p>
+            </div>
+        </section>
+
+        <section id="menu" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-4xl font-bold text-center text-gray-800 mb-10 border-b-4 border-pink-500 pb-2">
+                    Our Irresistible Selection
+                </h3>
+
+                <div class="mb-12">
+                    <h4 class="text-3xl font-bold text-center text-pink-700 mb-8">Delightful Treats</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Brownie 6 pieces</span>
+                                <span class="cake-item-price">₹250</span>
+                            </div>
+                            <p class="cake-item-description">Rich, fudgy chocolate brownies, perfect for sharing (or not!).</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Triple Chocolate Brownie 6 pieces</span>
+                                <span class="cake-item-price">₹300</span>
+                            </div>
+                            <p class="cake-item-description">An intense chocolate experience with three layers of decadence.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Ultimate Tublicious 1 piece</span>
+                                <span class="cake-item-price">₹250</span>
+                            </div>
+                            <p class="cake-item-description">Our signature ultimate dessert in a convenient single-serving tub.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Mini Ultimate Tublicious</span>
+                                <span class="cake-item-price">₹150</span>
+                            </div>
+                            <p class="cake-item-description">A petite version of our famous tublicious treat, perfect for a quick indulgence.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Chocolate Kunafa Tub Cake</span>
+                                <span class="cake-item-price">₹350</span>
+                            </div>
+                            <p class="cake-item-description">A delightful fusion of traditional kunafa and rich chocolate, irresistible!</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Chocolate Nutella Tub Cake</span>
+                                <span class="cake-item-price">₹300</span>
+                            </div>
+                            <p class="cake-item-description">Creamy Nutella swirled into a moist chocolate cake, pure bliss in a tub.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Milkcake with Caramel 1 piece</span>
+                                <span class="cake-item-price">₹50</span>
+                            </div>
+                            <p class="cake-item-description">A luscious piece of milk cake, soaked and topped with golden caramel.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Milkcake with Caramel 6 pieces</span>
+                                <span class="cake-item-price">₹300</span>
+                            </div>
+                            <p class="cake-item-description">A box of six delightful caramel milk cakes, perfect for gatherings.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Bomboloni Donuts 6 pieces</span>
+                                <span class="cake-item-price">₹260</span>
+                            </div>
+                            <p class="cake-item-description">Six soft, fluffy Italian-style filled donuts, a sweet indulgence.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div>
+                    <h4 class="text-3xl font-bold text-center text-pink-700 mb-8">Cakes Edition ✨</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Chocolate Truffle Cake Half Kg</span>
+                                <span class="cake-item-price">₹800</span>
+                            </div>
+                            <p class="cake-item-description">A rich, dense chocolate truffle cake for pure cocoa pleasure.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Chocolate Truffle Cake 1kg</span>
+                                <span class="cake-item-price">₹1200</span>
+                            </div>
+                            <p class="cake-item-description">Our signature chocolate truffle, perfect for celebrations big and small.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Vanilla Cake Half Kg</span>
+                                <span class="cake-item-price">₹600</span>
+                            </div>
+                            <p class="cake-item-description">Classic vanilla cake, light and airy, an all-time favorite.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Vanilla Cake 1 Kg</span>
+                                <span class="cake-item-price">₹800</span>
+                            </div>
+                            <p class="cake-item-description">A larger, equally delightful classic vanilla cake for any occasion.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Nutella Cake</span>
+                                <span class="cake-item-price">₹1500</span>
+                            </div>
+                            <p class="cake-item-description">Layers of moist cake with luscious Nutella frosting – simply divine.</p>
+                        </div>
+                        <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
+                            <div class="cake-item">
+                                <span class="cake-item-name">Biscoff Cake</span>
+                                <span class="cake-item-price">₹1500</span>
+                            </div>
+                            <p class="cake-item-description">The unique, spiced cookie butter flavor of Biscoff in a celebratory cake.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center p-6 bg-pink-100 rounded-xl">
+                    <p class="text-xl text-pink-900 font-medium">
+                        Ready to sweeten your day? For orders and inquiries, slide into our DMs!
+                    </p>
+                    <a href="https://www.instagram.com/cake.castle01" target="_blank" rel="noopener noreferrer"
+                       class="text-pink-600 font-semibold hover:underline mt-2 inline-block">
+                        <span class="text-2xl">@cake.castle01</span>
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2025 Cake Castle. All Rights Reserved.</p>
+    <footer class="bg-pink-900 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+            &copy; 2025 Cake Castle. All Rights Reserved. Crafted with <span class="text-red-400">❤</span>
+        </div>
     </footer>
 
 </body>
