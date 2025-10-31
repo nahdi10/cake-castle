@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Castle | Freshly Baked Delights</title>
     
+    <!-- FIX: Favicon / Logo in the URL Tab -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="icon" type="image/jpeg" href="logo.jpg">
 
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Use Inter font family and custom styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
@@ -20,12 +23,12 @@
         .cake-gradient {
             background-image: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); 
         }
-        /* Style for the main logo image */
+        /* Style for the main logo image - now larger for the top banner */
         .logo-image {
-            max-height: 80px; 
+            max-height: 100px; 
             width: auto;
-            border-radius: 12px; 
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 16px; 
+            box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.15); /* Stronger shadow */
         }
         /* Style for the Instagram logo image */
         .instagram-icon-img {
@@ -65,34 +68,46 @@
 </head>
 <body class="min-h-screen antialiased flex flex-col">
 
-    <header class="bg-white shadow-lg sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
-            
-            <a href="#" class="flex items-center space-x-3 text-pink-900 hover:text-pink-700 transition duration-300">
-                <img src="logo.jpg" alt="Cake Castle Logo" class="logo-image">
-                
-                <span class="text-3xl font-black tracking-wider whitespace-nowrap hidden sm:block">
+    <!-- 👑 NEW: TOP MASTHEAD with prominent Logo and Business Name (Static) -->
+    <div class="w-full py-6 bg-pink-900 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <a href="#" class="flex flex-col items-center justify-center space-y-2 text-white">
+                <img src="logo.jpg" alt="Cake Castle Logo" class="logo-image" 
+                     onerror="this.src='https://placehold.co/100x100/5d2543/ffffff?text=Logo'">
+                <span class="text-4xl sm:text-5xl font-black tracking-widest uppercase mt-2 drop-shadow-lg">
                     Cake Castle
                 </span>
             </a>
+        </div>
+    </div>
+    <!-- END TOP MASTHEAD -->
+
+    <!-- 🍰 STICKY HEADER: Simplified for Order CTA visibility -->
+    <header class="bg-white shadow-xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto p-4 flex justify-end items-center">
             
+            <!-- CTA Button (Instagram Link) - Now the only item in the sticky header -->
             <a href="https://www.instagram.com/cake.castle01" target="_blank" rel="noopener noreferrer"
                class="flex items-center space-x-2 
                       bg-pink-700 text-white font-bold py-2 px-4 rounded-full shadow-lg 
                       hover:bg-pink-800 transition duration-300 transform hover:scale-105">
                 
+                <!-- Instagram Icon Image -->
                 <img src="instagram.jpg" 
                      alt="Instagram Icon" 
                      class="instagram-icon-img"
                      onerror="this.src='https://placehold.co/32x32/d82d7a/ffffff?text=IG'">
                 
+                <!-- CTA Text (Responsive) -->
                 <span class="text-lg whitespace-nowrap hidden md:block">Order Now</span>
                 <span class="text-lg whitespace-nowrap block md:hidden">DM to Order</span>
             </a>
         </div>
     </header>
 
+    <!-- MAIN CONTENT AREA -->
     <main class="flex-grow">
+        <!-- Hero Section -->
         <section class="cake-gradient text-center py-16 px-4 shadow-xl">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-5xl md:text-6xl font-black text-pink-900 mb-4 drop-shadow-md">
@@ -108,6 +123,7 @@
             </div>
         </section>
 
+        <!-- Our Philosophy Section -->
         <section class="py-16 px-4 sm:px-6 lg:px-8 bg-pink-50">
             <div class="max-w-4xl mx-auto text-center">
                 <h3 class="text-4xl font-bold text-pink-800 mb-6">Our Philosophy</h3>
@@ -120,15 +136,18 @@
             </div>
         </section>
 
+        <!-- Menu/List Section -->
         <section id="menu" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
             <div class="max-w-4xl mx-auto">
                 <h3 class="text-4xl font-bold text-center text-gray-800 mb-10 border-b-4 border-pink-500 pb-2">
                     Our Irresistible Selection
                 </h3>
 
+                <!-- Delightful Treats Section -->
                 <div class="mb-12">
                     <h4 class="text-3xl font-bold text-center text-pink-700 mb-8">Delightful Treats</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Item: Brownie 6 pieces -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Brownie 6 pieces</span>
@@ -136,6 +155,7 @@
                             </div>
                             <p class="cake-item-description">Rich, fudgy chocolate brownies, perfect for sharing (or not!).</p>
                         </div>
+                        <!-- Item: Triple chocolate brownie 6 piece -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Triple Chocolate Brownie 6 pieces</span>
@@ -143,6 +163,7 @@
                             </div>
                             <p class="cake-item-description">An intense chocolate experience with three layers of decadence.</p>
                         </div>
+                        <!-- Item: Ultimate tublicious 1 piece -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Ultimate Tublicious 1 piece</span>
@@ -150,6 +171,7 @@
                             </div>
                             <p class="cake-item-description">Our signature ultimate dessert in a convenient single-serving tub.</p>
                         </div>
+                        <!-- Item: Mini ultimate tublicious -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Mini Ultimate Tublicious</span>
@@ -157,6 +179,7 @@
                             </div>
                             <p class="cake-item-description">A petite version of our famous tublicious treat, perfect for a quick indulgence.</p>
                         </div>
+                        <!-- Item: Chocolate Kunafa Tub Cake -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Chocolate Kunafa Tub Cake</span>
@@ -164,6 +187,7 @@
                             </div>
                             <p class="cake-item-description">A delightful fusion of traditional kunafa and rich chocolate, irresistible!</p>
                         </div>
+                        <!-- Item: Chocolate Nutella Tub Cake -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Chocolate Nutella Tub Cake</span>
@@ -171,6 +195,7 @@
                             </div>
                             <p class="cake-item-description">Creamy Nutella swirled into a moist chocolate cake, pure bliss in a tub.</p>
                         </div>
+                        <!-- Item: Milkcake with caramel 1 piece -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Milkcake with Caramel 1 piece</span>
@@ -178,6 +203,7 @@
                             </div>
                             <p class="cake-item-description">A luscious piece of milk cake, soaked and topped with golden caramel.</p>
                         </div>
+                        <!-- Item: Milkcake with caramel 6 pieces -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Milkcake with Caramel 6 pieces</span>
@@ -185,6 +211,7 @@
                             </div>
                             <p class="cake-item-description">A box of six delightful caramel milk cakes, perfect for gatherings.</p>
                         </div>
+                        <!-- Item: Bomboloni Donuts 6 pieces -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Bomboloni Donuts 6 pieces</span>
@@ -195,9 +222,11 @@
                     </div>
                 </div>
 
+                <!-- Cakes Edition Section -->
                 <div>
                     <h4 class="text-3xl font-bold text-center text-pink-700 mb-8">Cakes Edition ✨</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Item: Chocolate Truffle Cake Half Kg -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Chocolate Truffle Cake Half Kg</span>
@@ -205,6 +234,7 @@
                             </div>
                             <p class="cake-item-description">A rich, dense chocolate truffle cake for pure cocoa pleasure.</p>
                         </div>
+                        <!-- Item: Chocolate Truffle Cake 1kg -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Chocolate Truffle Cake 1kg</span>
@@ -212,6 +242,7 @@
                             </div>
                             <p class="cake-item-description">Our signature chocolate truffle, perfect for celebrations big and small.</p>
                         </div>
+                        <!-- Item: Vanilla Cake Half Kg -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Vanilla Cake Half Kg</span>
@@ -219,6 +250,7 @@
                             </div>
                             <p class="cake-item-description">Classic vanilla cake, light and airy, an all-time favorite.</p>
                         </div>
+                        <!-- Item: Vanilla Cake 1 Kg -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Vanilla Cake 1 Kg</span>
@@ -226,6 +258,7 @@
                             </div>
                             <p class="cake-item-description">A larger, equally delightful classic vanilla cake for any occasion.</p>
                         </div>
+                        <!-- Item: Nutella Cake -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Nutella Cake</span>
@@ -233,6 +266,7 @@
                             </div>
                             <p class="cake-item-description">Layers of moist cake with luscious Nutella frosting – simply divine.</p>
                         </div>
+                        <!-- Item: Biscoff Cake -->
                         <div class="bg-pink-50 p-6 rounded-xl shadow-md border border-pink-200">
                             <div class="cake-item">
                                 <span class="cake-item-name">Biscoff Cake</span>
@@ -256,6 +290,7 @@
         </section>
     </main>
 
+    <!-- FOOTER SECTION -->
     <footer class="bg-pink-900 text-white py-6 mt-12">
         <div class="max-w-7xl mx-auto px-4 text-center text-sm">
             &copy; 2025 Cake Castle. All Rights Reserved. Crafted with <span class="text-red-400">❤</span>
