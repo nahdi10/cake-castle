@@ -61,20 +61,6 @@
             margin-bottom: 0.75rem;
             line-height: 1.4;
         }
-
-        /* --- CRITICAL MOBILE FIX (Custom CSS) --- */
-        /* On small screens (max-width: 640px, or Tailwind 'sm:'), hide the username text. */
-        @media (max-width: 640px) {
-            .mobile-hide-handle {
-                display: none;
-            }
-        }
-        /* Shrink logo on small screens to save space */
-        @media (max-width: 500px) {
-            .logo-image {
-                max-height: 50px; 
-            }
-        }
     </style>
 </head>
 <body class="min-h-screen antialiased flex flex-col">
@@ -82,17 +68,26 @@
     <header class="bg-white shadow-lg sticky top-0 z-10">
         <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
             
-            <img src="logo.jpg" alt="Cake Castle Logo" class="logo-image">
+            <a href="#" class="flex items-center space-x-3 text-pink-900 hover:text-pink-700 transition duration-300">
+                <img src="logo.jpg" alt="Cake Castle Logo" class="logo-image">
+                
+                <span class="text-3xl font-black tracking-wider whitespace-nowrap hidden sm:block">
+                    Cake Castle
+                </span>
+            </a>
             
             <a href="https://www.instagram.com/cake.castle01" target="_blank" rel="noopener noreferrer"
-               class="flex items-center space-x-2 text-pink-700 hover:text-pink-900 transition duration-300 group border-2 border-pink-700 rounded-full p-2 hover:bg-pink-100 shadow-md">
+               class="flex items-center space-x-2 
+                      bg-pink-700 text-white font-bold py-2 px-4 rounded-full shadow-lg 
+                      hover:bg-pink-800 transition duration-300 transform hover:scale-105">
                 
                 <img src="instagram.jpg" 
                      alt="Instagram Icon" 
-                     class="instagram-icon-img group-hover:scale-105 transition duration-300"
+                     class="instagram-icon-img"
                      onerror="this.src='https://placehold.co/32x32/d82d7a/ffffff?text=IG'">
                 
-                <span class="text-xl font-semibold mobile-hide-handle">@cake.castle01</span>
+                <span class="text-lg whitespace-nowrap hidden md:block">Order Now</span>
+                <span class="text-lg whitespace-nowrap block md:hidden">DM to Order</span>
             </a>
         </div>
     </header>
